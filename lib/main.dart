@@ -1,5 +1,9 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:sensor_iot/account/account_details_page.dart';
+import 'package:sensor_iot/amplifyconfiguration.dart';
 import 'package:sensor_iot/sensor/sensor_list_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,19 +24,43 @@ final GoRouter _router = GoRouter(routes: [
   )
 ]);
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<StatefulWidget> createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  Future<void> _configureAmplify() async {
+    try {
+      await Amplify.addPlugin(AmplifyAuthCognito());
+      await Amplify.configure(amplifyconfig);
+      debugPrint('Successfully configured');
+    } on Exception catch (e) {
+      debugPrint('Error configuring Amplify: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _configureAmplify();
+  }
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return Authenticator(
+      child: MaterialApp.router(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        builder: Authenticator.builder(),
+        routerConfig: _router,
       ),
-      routerConfig: _router,
     );
   }
 }
