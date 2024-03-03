@@ -7,14 +7,18 @@ class FoxySensorsDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      width: 180,
       child: ListView(
+        padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(child: Text('Foxy Sensors')),
-          ListTile(
-            title: const Text('Sensors'),
+          GestureDetector(
             onTap: () {
               context.go('/');
             },
+            child: DrawerHeader(
+              decoration: BoxDecoration(color: Theme.of(context).colorScheme.inversePrimary),
+              child: Image.asset('assets/foxy_sensor_logo.png'),
+            ),
           ),
           ListTile(
             title: const Text('Account'),
@@ -23,11 +27,23 @@ class FoxySensorsDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Friends'),
+            title: const Text('Sensors'),
             onTap: () {
-              context.go('/account');
+              context.go('/');
             },
           ),
+          ListTile(
+            title: const Text('Add a Sensor'),
+            onTap: () {
+              debugPrint('TODO: ADD A SENSOR');
+            },
+          ),
+          ListTile(
+            title: const Text('Remove a Sensor'),
+            onTap: () {
+              debugPrint('TODO: REMOVE A SENSOR');
+            },
+          )
         ],
       ),
     );

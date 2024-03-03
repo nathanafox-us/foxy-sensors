@@ -15,9 +15,9 @@ class FoxySensor {
   FoxySensor({required this.type, required this.name});
 
   Future<bool> connectToMqtt() async {
-    ByteData rootCA = await rootBundle.load('assets/AmazonRootCA1.pem');
-    ByteData deviceCert = await rootBundle.load('assets/certificate.pem.crt');
-    ByteData deviceKey = await rootBundle.load('assets/private.pem.key');
+    ByteData rootCA = await rootBundle.load('assets/certs/AmazonRootCA1.pem');
+    ByteData deviceCert = await rootBundle.load('assets/certs/certificate.pem.crt');
+    ByteData deviceKey = await rootBundle.load('assets/certs/private.pem.key');
 
     final sc = SecurityContext.defaultContext;
     sc.setClientAuthoritiesBytes(rootCA.buffer.asUint8List());
