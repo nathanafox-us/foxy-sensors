@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sensor_iot/sensor/sensor.dart';
+import 'package:sensor_iot/sensor/foxy_sensor.dart';
 
 class SensorCard extends StatelessWidget {
   const SensorCard({
@@ -13,15 +13,16 @@ class SensorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.all(5),
       child: InkWell(
         onTap: () {
           sensor.connectToMqtt();
         },
-        child: Padding(
-          padding: const EdgeInsets.all(20),
+        child: Center(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.face),
+              const Icon(Icons.face, size: 100,),
               Text(sensor.name)
             ],
           ),
