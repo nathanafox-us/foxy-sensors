@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sensor_iot/models/foxy_sensor_list.dart';
 import 'package:sensor_iot/sensor/foxy_sensor.dart';
-import 'package:sensor_iot/sensor/foxy_sensor_card.dart';
 
 class RemoveFoxySensorDialog extends StatefulWidget {
   const RemoveFoxySensorDialog({Key? key}) : super(key: key);

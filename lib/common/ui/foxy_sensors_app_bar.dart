@@ -14,7 +14,14 @@ class FoxySensorsAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         backgroundColor: headerColor,
         centerTitle: true,
-        title: const Text('Foxy Sensors'),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/foxy_sensor_logo.png', fit: BoxFit.cover, height: 32,),
+            const SizedBox(width: 10,),
+            const Text('Foxy Sensors',),
+          ],
+        ),
         shape: const Border(
           bottom: BorderSide()
         ),
