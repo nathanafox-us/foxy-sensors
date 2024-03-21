@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
-import 'package:mqtt_client/mqtt_browser_client.dart';
+//import 'package:mqtt_client/mqtt_browser_client.dart';
 import 'package:sensor_iot/common/constants/strings.dart';
 
 class FoxySensor {

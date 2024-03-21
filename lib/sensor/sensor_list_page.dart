@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:sensor_iot/common/ui/foxy_sensors_app_bar.dart';
 import 'package:sensor_iot/common/ui/foxy_sensors_drawer.dart';
 import 'package:sensor_iot/models/foxy_sensor_list.dart';
-import 'package:sensor_iot/sensor/foxy_sensor.dart';
 import 'package:sensor_iot/sensor/foxy_sensor_card.dart';
 
 class SensorListPage extends StatelessWidget {

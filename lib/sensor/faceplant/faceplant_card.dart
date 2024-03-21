@@ -37,7 +37,15 @@ class FacePlantCard extends SensorCard {
                   WaterState.below => Expanded(child: Image.asset('assets/frown.png'),),
                 },
                 const SizedBox(height: 10,),
-                Text(sensor.name, style: const TextStyle(fontSize: 16, backgroundColor: Colors.white),)
+                Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.white
+                  ),
+                  width: double.infinity,
+                  child: Text(sensor.name, style: const TextStyle(fontSize: 16), textAlign: TextAlign.center,),
+                )
               ],
             ),
           ),
