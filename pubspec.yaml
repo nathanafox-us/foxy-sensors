@@ -59,6 +59,12 @@ flutter:
     - assets/certs/certificate.pem.crt
     - assets/certs/private.pem.key
     - assets/foxy_sensor_logo.png
+    - assets/foxy_sensor_logo_title.png
+    - assets/sunny_background.png
+    - assets/smile.png
+    - assets/smile_2.png
+    - assets/frown.png
+    - assets/drown.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

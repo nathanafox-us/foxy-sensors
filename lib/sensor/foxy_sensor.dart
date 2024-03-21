@@ -8,11 +8,12 @@ import 'package:mqtt_client/mqtt_browser_client.dart';
 import 'package:sensor_iot/common/constants/strings.dart';
 
 class FoxySensor {
+  final int sensorId;
   final String type;
   final String name;
   final MqttServerClient _client = MqttServerClient(iotEndpoint, 'MAKE_ME_UNIQUE_LATER_TODO_');
 
-  FoxySensor({required this.type, required this.name});
+  FoxySensor({required this.sensorId, required this.type, required this.name});
 
   Future<bool> connectToMqtt() async {
     ByteData rootCA = await rootBundle.load('assets/certs/AmazonRootCA1.pem');

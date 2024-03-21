@@ -7,6 +7,8 @@ import 'package:sensor_iot/account/account_details_page.dart';
 import 'package:sensor_iot/amplifyconfiguration.dart';
 import 'package:sensor_iot/models/account_details.dart';
 import 'package:sensor_iot/models/foxy_sensor_list.dart';
+import 'package:sensor_iot/sensor/foxy_sensor.dart';
+import 'package:sensor_iot/sensor/sensor_detail_page.dart';
 import 'package:sensor_iot/sensor/sensor_list_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,6 +25,12 @@ final GoRouter _router = GoRouter(routes: [
     path: '/account',
     builder: (context, goRouterState) {
         return const AccountDetailsPage();
+    }
+  ),
+  GoRoute(
+    path: '/sensor_detail',
+    builder: (context, goRouterState) {
+      return SensorDetailPage(sensor: goRouterState.extra as FoxySensor);
     }
   )
 ]);

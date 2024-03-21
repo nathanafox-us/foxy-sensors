@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sensor_iot/sensor/faceplant/faceplant_card.dart';
 import 'package:sensor_iot/sensor/foxy_sensor.dart';
 
-class SensorCard extends StatelessWidget {
+abstract class SensorCard extends StatelessWidget {
   const SensorCard({
     required this.sensor,
     Key? key,
@@ -10,24 +11,13 @@ class SensorCard extends StatelessWidget {
 
   final FoxySensor sensor;
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: EdgeInsets.all(5),
-      child: InkWell(
-        onTap: () {
-          sensor.connectToMqtt();
-        },
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.face, size: 100,),
-              Text(sensor.name)
-            ],
-          ),
-        ),
-      ),
-    );
+  void goToDetailPage(BuildContext context) {
+    context.go('/sensor_detail', extra: sensor);
+  }
+
+  factory SensorCard.factory({required FoxySensor sensor}) {
+    return switch(sensor.type) {
+      _ => FacePlantCard(sensor: sensor,),
+    };
   }
 }
