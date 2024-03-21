@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sensor_iot/common/constants/colors.dart';
+import 'package:sensor_iot/sensor/dialogs/add_foxy_sensor_dialog.dart';
+import 'package:sensor_iot/sensor/dialogs/remove_foxy_sensor_dialog.dart';
 
 class FoxySensorsDrawer extends StatelessWidget {
   const FoxySensorsDrawer({Key? key}) : super(key: key);
@@ -16,8 +19,15 @@ class FoxySensorsDrawer extends StatelessWidget {
               context.go('/');
             },
             child: DrawerHeader(
-              decoration: BoxDecoration(color: Theme.of(context).colorScheme.inversePrimary),
-              child: Image.asset('assets/foxy_sensor_logo.png'),
+              margin: EdgeInsets.zero,
+              decoration: const BoxDecoration(
+                color: headerColor,
+                border: Border(
+                  bottom: BorderSide(),
+                  top: BorderSide(),
+                )
+              ),
+              child: Image.asset('assets/foxy_sensor_logo_title.png'),
             ),
           ),
           ListTile(
@@ -35,13 +45,13 @@ class FoxySensorsDrawer extends StatelessWidget {
           ListTile(
             title: const Text('Add a Sensor'),
             onTap: () {
-              debugPrint('TODO: ADD A SENSOR');
+              showDialog(context: context, builder: (context) => const AddFoxySensorDialog());
             },
           ),
           ListTile(
             title: const Text('Remove a Sensor'),
             onTap: () {
-              debugPrint('TODO: REMOVE A SENSOR');
+              showDialog(context: context, builder: (context) => const RemoveFoxySensorDialog());
             },
           )
         ],

@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/cupertino.dart';
 
-class AccountDetails extends ChangeNotifier{
+class AccountDetails extends ChangeNotifier {
   List<AuthUserAttribute>? _currentUser;
 
   UnmodifiableListView<AuthUserAttribute> get currentUser => UnmodifiableListView(_currentUser ?? []);
