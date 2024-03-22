@@ -31,17 +31,16 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_native_splash:
-  color: "#9ED75B"
-  image: "assets/foxy_sensor_logo.png"
+  color: "#ffffff"
+  image: assets/logo_with_bgnd.png
 
 flutter_launcher_icons:
-  android:
-    adaptive_icon_background: "#9ED75B"
-    adaptive_icon_foreground: "launcher_icon"
-  ios:
-    remove_alpha_ios: true
-  image_path: "assets/foxy_sensor_logo.png"
+  android: true
   min_sdk_android: 21
+  ios: true
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/foxy_sensor_logo.png"
+  image_path: "assets/logo_with_bgnd.png"
   web:
     generate: true
     image_path: "assets/foxy_sensor_logo.png"
@@ -58,6 +57,7 @@ flutter:
     - assets/certs/AmazonRootCA1.pem
     - assets/certs/certificate.pem.crt
     - assets/certs/private.pem.key
+    - assets/logo_with_bgnd.png
     - assets/foxy_sensor_logo.png
     - assets/foxy_sensor_logo_title.png
     - assets/sunny_background.png
