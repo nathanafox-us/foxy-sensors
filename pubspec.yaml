@@ -32,15 +32,16 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/logo_with_bgnd.png
+  image: "assets/logo_with_bgnd.png"
 
 flutter_launcher_icons:
   android: true
   min_sdk_android: 21
   ios: true
   adaptive_icon_background: "#ffffff"
-  adaptive_icon_foreground: "assets/foxy_sensor_logo.png"
+  adaptive_icon_foreground: "assets/logo_with_padding_4@4x.png"
   image_path: "assets/logo_with_bgnd.png"
+  remove_alpha_ios: true
   web:
     generate: true
     image_path: "assets/foxy_sensor_logo.png"
@@ -58,6 +59,7 @@ flutter:
     - assets/certs/certificate.pem.crt
     - assets/certs/private.pem.key
     - assets/logo_with_bgnd.png
+    - assets/logo_with_padding_4@4x.png
     - assets/foxy_sensor_logo.png
     - assets/foxy_sensor_logo_title.png
     - assets/sunny_background.png

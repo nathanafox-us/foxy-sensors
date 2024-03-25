@@ -25,14 +25,6 @@ class FoxySensorsAppBar extends StatelessWidget implements PreferredSizeWidget {
         shape: const Border(
           bottom: BorderSide()
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              debugPrint('Pressed notifications button');
-            },
-            icon: const Icon(Icons.notifications_active),
-          ),
-        ],
       ),
     );
   }
