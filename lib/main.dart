@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sensor_iot/account/account_details_page.dart';
 import 'package:sensor_iot/amplifyconfiguration.dart';
+import 'package:sensor_iot/common/constants/colors.dart';
 import 'package:sensor_iot/models/account_details.dart';
 import 'package:sensor_iot/models/foxy_sensor_list.dart';
 import 'package:sensor_iot/sensor/foxy_sensor.dart';
@@ -71,7 +72,7 @@ class MyAppState extends State<MyApp> {
         child: MaterialApp.router(
           title: 'Foxy Sensors',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+            colorScheme: ColorScheme.fromSeed(seedColor: headerColor),
             useMaterial3: true,
           ),
           builder: Authenticator.builder(),

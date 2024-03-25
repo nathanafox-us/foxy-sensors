@@ -14,8 +14,9 @@ class AccountDetails extends ChangeNotifier {
     setUser();
   }
 
-  Future<void> setUser() async {
+  Future<AccountDetails> setUser() async {
     _currentUser = await Amplify.Auth.fetchUserAttributes();
     notifyListeners();
+    return this;
   }
 }
