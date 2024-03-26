@@ -31,12 +31,18 @@ class FacePlantCard extends SensorCard {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                switch (faceplant.waterState) {
-                  WaterState.within => Expanded(child: Image.asset('assets/smile_2.png'),),
-                  WaterState.above => Expanded(child: Image.asset('assets/drown.png')),
-                  WaterState.below => Expanded(child: Image.asset('assets/frown.png'),),
-                },
+                Expanded(
+                  child: Hero(
+                  tag: faceplant.name,
+                    child: switch (faceplant.waterState) {
+                      WaterState.within => Image.asset('assets/smile_2.png'),
+                      WaterState.above => Image.asset('assets/drown.png'),
+                      WaterState.below => Image.asset('assets/frown.png'),
+                    },
+                  )
+                ),
                 const SizedBox(height: 10,),
+
                 Container(
                   padding: const EdgeInsets.all(5),
                   decoration: const BoxDecoration(

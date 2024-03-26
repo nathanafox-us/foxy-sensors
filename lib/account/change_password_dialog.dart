@@ -68,7 +68,7 @@ class _ChangePasswordDialogState extends State<ChangePasswordDialog> {
         );
 
         Navigator.of(context).pop();
-      } on LimitExceededException catch (limitExceededError) {
+      } on LimitExceededException {
         _scaffoldMessengerKey.currentState?.hideCurrentSnackBar();
         _scaffoldMessengerKey.currentState?.showSnackBar(
             const SnackBar(content: Center(child: Text('Limit exceeded, try again later!'),), backgroundColor: Colors.redAccent,)

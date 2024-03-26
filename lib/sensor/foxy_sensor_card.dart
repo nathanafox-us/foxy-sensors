@@ -12,7 +12,7 @@ abstract class SensorCard extends StatelessWidget {
   final FoxySensor sensor;
 
   void goToDetailPage(BuildContext context) {
-    context.go('/sensor_detail', extra: sensor);
+    context.go('/sensor/${sensor.sensorId}');
   }
 
   factory SensorCard.factory({required FoxySensor sensor}) {

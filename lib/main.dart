@@ -29,9 +29,9 @@ final GoRouter _router = GoRouter(routes: [
     }
   ),
   GoRoute(
-    path: '/sensor_detail',
+    path: '/sensor/:sid',
     builder: (context, goRouterState) {
-      return SensorDetailPage(sensor: goRouterState.extra as FoxySensor);
+      return SensorDetailPage(sid: goRouterState.pathParameters['sid']!);
     }
   )
 ]);

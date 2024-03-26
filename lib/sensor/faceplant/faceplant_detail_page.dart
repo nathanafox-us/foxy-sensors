@@ -8,16 +8,15 @@ import 'package:sensor_iot/sensor/faceplant/water_slider.dart';
 
 class FacePlantDetailPage extends StatelessWidget {
   const FacePlantDetailPage({
-    required this.plantId,
+    required this.faceplant,
     Key? key,
   }) : super(key: key);
 
-  final int plantId;
+  final Faceplant faceplant;
 
   @override
   Widget build(BuildContext context) {
     final sensorList = Provider.of<FoxySensorList>(context);
-    final faceplant = sensorList.withId(plantId) as Faceplant;
 
     return Scaffold(
       appBar: const FoxySensorsAppBar(),
@@ -36,18 +35,22 @@ class FacePlantDetailPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-                child: switch(faceplant.waterState) {
-                  WaterState.within => Image.asset('assets/smile_2.png'),
-                  WaterState.above => Image.asset('assets/drown.png'),
-                  WaterState.below => Image.asset('assets/frown.png'),
-                },
+                child: Hero(
+                  tag: faceplant.name,
+                  child: switch (faceplant.waterState) {
+                    WaterState.within => Image.asset('assets/smile_2.png'),
+                    WaterState.above => Image.asset('assets/drown.png'),
+                    WaterState.below => Image.asset('assets/frown.png'),
+                  },
+                ),
               ),
+
               Container(
                 margin: const EdgeInsets.all(20),
                 padding: const EdgeInsets.all(20),
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.white
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.white
                 ),
                 child: Column(
                   children: [
