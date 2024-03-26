@@ -63,18 +63,27 @@ class MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
     return Authenticator(
       child: MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => FoxySensorList(),),
           ChangeNotifierProvider(create: (_) => AccountDetails(),),
+          Provider(create: (_) => rootScaffoldMessengerKey),
         ],
         child: MaterialApp.router(
           title: 'Foxy Sensors',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: headerColor),
             useMaterial3: true,
+            scaffoldBackgroundColor: appBackgroundColor,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: headerColor,
+              scrolledUnderElevation: 0,
+            ),
           ),
+          scaffoldMessengerKey: rootScaffoldMessengerKey,
           builder: Authenticator.builder(),
           routerConfig: _router,
         ),
