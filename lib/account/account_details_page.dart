@@ -2,6 +2,7 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sensor_iot/account/change_name_dialog.dart';
+import 'package:sensor_iot/account/change_password_dialog.dart';
 import 'package:sensor_iot/common/constants/colors.dart';
 import 'package:sensor_iot/common/ui/foxy_sensors_app_bar.dart';
 import 'package:sensor_iot/common/ui/foxy_sensors_drawer.dart';
@@ -17,7 +18,9 @@ class AccountDetailsPage extends StatefulWidget {
 class _AccountDetailsPageState extends State<AccountDetailsPage> {
   @override
   void didChangeDependencies() {
+    super.didChangeDependencies();
     accountDetails = Provider.of<AccountDetails>(context);
+    accountDetails?.setUser();
   }
 
   AccountDetails? accountDetails;
@@ -27,12 +30,10 @@ class _AccountDetailsPageState extends State<AccountDetailsPage> {
     return Scaffold(
       appBar: const FoxySensorsAppBar(),
       drawer: const FoxySensorsDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 20),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20,),
+            const Icon(Icons.account_circle_rounded, color: headerColor, size: 200,),
             if (accountDetails != null) ...[
               InkWell(
                 onLongPress: () {
@@ -41,30 +42,38 @@ class _AccountDetailsPageState extends State<AccountDetailsPage> {
                     builder:  (context) => const ChangeNameDialog(),
                   );
                 },
-                child: Text(accountDetails!.name, style: const TextStyle(fontSize: 30),),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      accountDetails!.name,
+                      style: const TextStyle(fontSize: 30,),
+                    ),
+                    const SizedBox(width: 5,),
+                    const Icon(Icons.edit),
+                  ],
+                ),
               ),
               const SizedBox(height: 5,),
               Text(accountDetails!.email),
               const SizedBox(height: 20,),
             ],
             ElevatedButton(
-              onPressed: Amplify.Auth.signOut,
-              child: const Text('Logout'),
-            ),
-            const SizedBox(height: 5,),
-            ElevatedButton(
               onPressed: () {
-                debugPrint('Change Password Pressed');
+                showDialog(
+                  context: context,
+                  builder: (context) => const ChangePasswordDialog(),
+                );
               },
               child: const Text('Change Password'),
             ),
             const SizedBox(height: 5,),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Delete Account'),
-            )
+              onPressed: Amplify.Auth.signOut,
+              child: const Text('Logout'),
+            ),
           ],
-              ),
+        ),
       ),
     );
   }

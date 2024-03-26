@@ -11,7 +11,7 @@ class FoxySensorsDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      width: 180,
+      width: 170,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:sensor_iot/common/constants/colors.dart';
 
 class FoxySensorsAppBar extends StatelessWidget implements PreferredSizeWidget {
   const FoxySensorsAppBar({Key? key}) : super(key: key);
@@ -12,7 +11,6 @@ class FoxySensorsAppBar extends StatelessWidget implements PreferredSizeWidget {
         context.go('/');
       },
       child: AppBar(
-        backgroundColor: headerColor,
         centerTitle: true,
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -21,9 +19,6 @@ class FoxySensorsAppBar extends StatelessWidget implements PreferredSizeWidget {
             const SizedBox(width: 10,),
             const Text('Foxy Sensors',),
           ],
-        ),
-        shape: const Border(
-          bottom: BorderSide()
         ),
       ),
     );
