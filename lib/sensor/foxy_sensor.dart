@@ -8,7 +8,7 @@ import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:sensor_iot/common/constants/strings.dart';
 
 class FoxySensor {
-  final int sensorId;
+  final String sensorId;
   final String type;
   final String name;
   final MqttServerClient _client = MqttServerClient(iotEndpoint, 'MAKE_ME_UNIQUE_LATER_TODO_');
